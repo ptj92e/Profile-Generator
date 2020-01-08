@@ -1,32 +1,4 @@
-const colors = {
-    green: {
-        wrapperBackground: "#E6E1C3",
-        headerBackground: "#C1C72C",
-        headerColor: "black",
-        photoBorderColor: "#black"
-    },
-    blue: {
-        wrapperBackground: "#5F64D3",
-        headerBackground: "#26175A",
-        headerColor: "white",
-        photoBorderColor: "#73448C"
-    },
-    pink: {
-        wrapperBackground: "#879CDF",
-        headerBackground: "#FF8374",
-        headerColor: "white",
-        photoBorderColor: "#FEE24C"
-    },
-    red: {
-        wrapperBackground: "#DE9967",
-        headerBackground: "#870603",
-        headerColor: "white",
-        photoBorderColor: "white"
-    }
-};
-
-function generateHTML(data, bioPic, givenName, location, githubLink, blog, userBio, publicRepos, followers, stars, following) {
-    return `<!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="en">
     
     <head>
@@ -60,7 +32,7 @@ function generateHTML(data, bioPic, givenName, location, githubLink, blog, userB
             }
     
             .wrapper {
-                background-color: ${colors[data.color].wrapperBackground}
+                background-color: #E6E1C3
     
                 ;
                 padding-top: 100px;
@@ -120,11 +92,11 @@ function generateHTML(data, bioPic, givenName, location, githubLink, blog, userB
                 justify-content: center;
                 flex-wrap: wrap;
     
-                background-color: ${colors[data.color].headerBackground}
+                background-color: #C1C72C
     
                 ;
     
-                color: ${colors[data.color].headerColor}
+                color: black
     
                 ;
                 padding: 10px;
@@ -139,7 +111,7 @@ function generateHTML(data, bioPic, givenName, location, githubLink, blog, userB
                 object-fit: cover;
                 margin-top: -75px;
     
-                border: 6px solid ${colors[data.color].photoBorderColor}
+                border: 6px solid #black
     
                 ;
                 box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
@@ -196,11 +168,11 @@ function generateHTML(data, bioPic, givenName, location, githubLink, blog, userB
                 padding: 20px;
                 border-radius: 6px;
     
-                background-color: ${colors[data.color].headerBackground}
+                background-color: #C1C72C
     
                 ;
     
-                color: ${colors[data.color].headerColor}
+                color: black
     
                 ;
                 margin: 20px;
@@ -230,38 +202,35 @@ function generateHTML(data, bioPic, givenName, location, githubLink, blog, userB
         <div class="main">
             <div class="wrapper">
                 <div class="photo-header">
-                    <img src="${bioPic}">
-                    <h1>Hi! My name is ${givenName}!</h1>
+                    <img src="https://avatars3.githubusercontent.com/u/54483310?v=4">
+                    <h1>Hi! My name is Phillip T Jones!</h1>
                     <div class="links-nav">
-                        <a class="nav-link">${location}</a>
-                        <a class="nav-link" src="${githubLink}">GitHub</a>
-                        <a class="nav-link" src="${blog}">Blog</a>
+                        <a class="nav-link">Hendersonville, TN</a>
+                        <a class="nav-link" src="https://github.com/ptj92e">GitHub</a>
+                        <a class="nav-link" src="">Blog</a>
                     </div>
                 </div>
                 <div class="container">
-                    <h3 class="bio">${userBio}</h3>
+                    <h3 class="bio">My name is Phillip Jones and I am an aspiring full stack web developer studying at the Vanderbilt Coding Bootcamp.</h3>
                     <div class="row">
                         <div class="card col">
                             <h3>Public Repositories</h3>
-                            <p>${publicRepos}</p>
+                            <p>13</p>
                         </div>
                         <div class="card col">
                             <h3>Followers</h3>
-                            <p>${followers}</p>
+                            <p>1</p>
                         </div>
                         <div class="card col">
                             <h3>GitHub Stars</h3>
-                            <p>${stars}</p>
+                            <p></p>
                         </div>
                         <div class="card col">
                             <h3>Following</h3>
-                            <p>${following}</p>
+                            <p>1</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </body>`
-};
-
-module.exports = {colors, generateHTML};
+    </body>
