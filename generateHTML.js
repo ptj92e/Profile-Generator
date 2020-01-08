@@ -234,8 +234,8 @@ function generateHTML(data, bioPic, givenName, location, githubLink, blog, userB
                     <h1>Hi! My name is ${givenName}!</h1>
                     <div class="links-nav">
                         <a class="nav-link">${location}</a>
-                        <a class="nav-link" src="${githubLink}">GitHub</a>
-                        <a class="nav-link" src="${blog}">Blog</a>
+                        <a class="nav-link" href="${githubLink}">GitHub</a>
+                        <a class="nav-link" href="${blog}">Blog</a>
                     </div>
                 </div>
                 <div class="container">

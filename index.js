@@ -1,6 +1,7 @@
 // These variables are requiring all of the NPM packages that were downloaded
 let inquirer = require("inquirer");
-let fs = require('fs');
+let fs = require('fs'), convertFactory = require("electron-html-to");
+let conversion = convertFactory({ converterPath: convertFactory.converters.PDF });
 let electron = require('electron');
 let axios = require('axios');
 let HTML = require('./generateHTML');
@@ -55,12 +56,13 @@ inquirer.prompt([
             console.log(bioPic);
             let htmlData = HTML.generateHTML(data, bioPic, givenName, location, githubLink, blog, userBio, publicRepos, followers, stars, following);
 
-            fs.writeFile("profile.html", htmlData, function (err) {
+            conversion({ html: htmlData }, function (err, result) {
                 if (err) {
-                    return console.log(err);
+                    return console.error(err);
                 }
-                console.log("Success!");
+                result.stream.pipe(fs.createWriteStream('profile.pdf'));
+                conversion.kill();
+                });
             });
         });
     });
-});
