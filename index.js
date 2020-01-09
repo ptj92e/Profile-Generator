@@ -2,7 +2,6 @@
 let inquirer = require("inquirer");
 let fs = require('fs'), convertFactory = require("electron-html-to");
 let conversion = convertFactory({ converterPath: convertFactory.converters.PDF });
-let electron = require('electron');
 let axios = require('axios');
 let HTML = require('./generateHTML');
 // This function prompts the user with a series of questions
@@ -40,6 +39,7 @@ inquirer.prompt([
 
     //This axios call is using the username collected from the prompts to call out to github
     axios.get("https://api.github.com/users/" + data.username).then(function (res) {
+        //These lines are redeclaring variables with information pulled from the axios call
         bioPic = res.data.avatar_url;
         givenName = res.data.name;
         location = res.data.location;
@@ -50,12 +50,12 @@ inquirer.prompt([
         publicRepos = res.data.public_repos;
         followers = res.data.followers;
         following = res.data.following;
-
+        //This second axios call is pulling the information for the stars from GitHub
         axios.get("https://api.github.com/users/" + data.username + "/starred").then(function (res) {
             stars = res.data;
-            console.log(bioPic);
+            //This variable is pulling the template literal from the generateHTML.js page and plugging in variables from the responses of the axios call
             let htmlData = HTML.generateHTML(data, bioPic, givenName, location, githubLink, blog, userBio, publicRepos, followers, stars, following);
-
+            //This last function is using electrion-html-to to generate a pdf from the template literal in the generateHTML.js page
             conversion({ html: htmlData }, function (err, result) {
                 if (err) {
                     return console.error(err);

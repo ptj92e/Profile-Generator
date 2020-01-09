@@ -1,3 +1,4 @@
+//This variable contains the colors that are being retrieved and plugged into the template literal 
 const colors = {
     green: {
         wrapperBackground: "#E6E1C3",
@@ -24,7 +25,7 @@ const colors = {
         photoBorderColor: "white"
     }
 };
-
+//This function contains the template literal that the write function is pulling in the index.js file
 function generateHTML(data, bioPic, givenName, location, githubLink, blog, userBio, publicRepos, followers, stars, following) {
     return `<!DOCTYPE html>
     <html lang="en">
@@ -249,6 +250,8 @@ function generateHTML(data, bioPic, givenName, location, githubLink, blog, userB
                             <h3>Followers</h3>
                             <p>${followers}</p>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="card col">
                             <h3>GitHub Stars</h3>
                             <p>${stars}</p>
