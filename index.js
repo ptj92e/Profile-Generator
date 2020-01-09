@@ -51,8 +51,10 @@ inquirer.prompt([
         followers = res.data.followers;
         following = res.data.following;
         //This second axios call is pulling the information for the stars from GitHub
-        axios.get("https://api.github.com/users/" + data.username + "/starred").then(function (res) {
-            stars = res.data;
+        axios.get("https://api.github.com/users/" + data.username + "/repos").then(function (res) {
+            res.data.forEach(function(repo) {
+                stars += repo.stargazers_count;
+            });
             //This variable is pulling the template literal from the generateHTML.js page and plugging in variables from the responses of the axios call
             let htmlData = HTML.generateHTML(data, bioPic, givenName, location, githubLink, blog, userBio, publicRepos, followers, stars, following);
             //This last function is using electrion-html-to to generate a pdf from the template literal in the generateHTML.js page
