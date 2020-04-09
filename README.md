@@ -8,6 +8,9 @@ In this activity, I have been tasked with creating a profile generator using nod
 
 I was given a file with an array of different colors and the beginning of a template literal to be used as the beginning of the styling. It was then my job to fill in the rest of the HTML to create the layout of the page. 
 
+## Technologies
+Inquirer, FS, Axios, Electron-HTML-To, Node
+
 ## NPM Install
 For this application to work, I needed to use the Node Package Manage functionality to install different modules to be used in the application. In this app, I had to install Inquirer, FS, Axios, and Electron-HTML-To. All of these modules provide functionality that uses JavaScript to do different things. The Inquirer module uses different prompts to gather information from uses and that information can be passes as arguments to different functions. The FS module writes files based off of information passed into it. The Axios module is a back-end API calling system that retrieves information from API urls given to it. Lastly, the Electron-HTML-To module is used in conjunction with the FS module to convert the generated HTML file into a PDF. 
 
